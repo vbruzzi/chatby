@@ -1,0 +1,7 @@
+<app-login
+*ngIf="!loggedIn"
+(updateState)="updateStorage($event)">
+
+</app-login>
+
+<button (click)="deleteStorage()">Logout</button>
