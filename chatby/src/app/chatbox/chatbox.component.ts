@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-chatbox',
@@ -11,5 +12,7 @@ export class ChatboxComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  message = new FormControl('');
 
 }

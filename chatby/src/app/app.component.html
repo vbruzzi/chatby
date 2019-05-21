@@ -4,4 +4,8 @@
 
 </app-login>
 
+<app-chatbox
+*ngIf="loggedIn">
+
+</app-chatbox>
 <button (click)="deleteStorage()">Logout</button>

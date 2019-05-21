@@ -16,7 +16,7 @@ export class AppComponent {
   updateStorage(event=null){ 
     console.log(event)
     this.loggedIn = localStorage.getItem("loggedIn");
-
+ 
     this.username = localStorage.getItem("username");
   }
 

@@ -1,3 +1,32 @@
-<p>
-  chatbox works!
-</p>
+<mat-grid-list cols="4" rowHeight="50px">
+  <mat-grid-tile
+  style="background-color:black"
+    [colspan]="1"
+    [rowspan]="12">
+    
+  </mat-grid-tile>
+  <mat-grid-tile 
+  style="background-color:blue"
+    [colspan]="3"
+    [rowspan]="10">
+    yeah!
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="3"
+    [rowspan]="1">
+    <mat-form-field>
+      <input 
+        type="text"
+        placeholder="Message"
+        [formControl]="message"
+        minlength="5"
+        matInput required>
+    </mat-form-field>
+    <button
+      color="primary"
+      [disabled]="!message.valid"
+      mat-stroked-button>
+      Send
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

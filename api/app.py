@@ -1,7 +1,8 @@
 from flask import Flask, jsonify, request, redirect, url_for
+from flask_socketio import SocketIO, send
+from flask_cors import CORS
 from pymongo import MongoClient
 from bson import json_util
-from flask_cors import CORS
 from bson import ObjectId
 import datetime
 import json
@@ -15,8 +16,14 @@ client = MongoClient("mongodb+srv://vitor:HGaPxICYFnhXPxKq@cluster0-zejls.mongod
 db = client.Chatby
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 CORS(app)
 
+
+@socketio.on('message')
+def handleMessage(msg):
+        print("Message:", msg)
+        send(msg, broadcast=True)
 
 
 # CHAT RELATED ROUTES
