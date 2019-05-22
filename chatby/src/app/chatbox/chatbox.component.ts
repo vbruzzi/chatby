@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-chatbox',
@@ -8,11 +9,11 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ChatboxComponent implements OnInit {
 
-  constructor() { }
+  message = new FormControl('');
+  constructor(private service: ChatService) { }
 
   ngOnInit() {
   }
 
-  message = new FormControl('');
 
 }

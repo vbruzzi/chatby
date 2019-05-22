@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, redirect, url_for
-from flask_socketio import SocketIO, send
+
+from flask_socketio import SocketIO
 from flask_cors import CORS
 from pymongo import MongoClient
 from bson import json_util
@@ -16,9 +17,12 @@ client = MongoClient("mongodb+srv://vitor:HGaPxICYFnhXPxKq@cluster0-zejls.mongod
 db = client.Chatby
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 CORS(app)
 
+
+@socketio.on('connection')
 
 @socketio.on('message')
 def handleMessage(msg):
@@ -125,3 +129,5 @@ def users():
         else:
                 return 'Method not supported', 500
         
+if __name__ == '__main__':
+    app.run(debug=True, host="0.0.0.0")
