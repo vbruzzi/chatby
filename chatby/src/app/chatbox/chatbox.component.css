@@ -1,0 +1,24 @@
+.other {
+    align-content: flex-start;
+    text-align: left;
+}
+
+.me { 
+    align-self: flex-end;
+    text-align: right;
+}
+
+.user {
+    font-weight: 600;
+}
+
+mat-card {
+    max-width: 300px;
+}
+
+#messageBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}

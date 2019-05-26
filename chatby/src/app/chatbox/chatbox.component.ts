@@ -10,10 +10,22 @@ import { ChatService } from '../chat.service';
 export class ChatboxComponent implements OnInit {
 
   message = new FormControl('');
+  username = localStorage.getItem("username");
+  ioConnection: any;
+  messages: Object[] = [];
+  
   constructor(private service: ChatService) { }
 
   ngOnInit() {
+    this.service.initSocket();
+    this.ioConnection = this.service.onMessage()
+      .subscribe((message) => {
+        this.messages.push(message);
+      });
   }
 
+  sendMessage() {
+    this.service.sendMessage(this.username, this.message.value);
+  }
 
 }

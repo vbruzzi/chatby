@@ -6,10 +6,21 @@
     
   </mat-grid-tile>
   <mat-grid-tile 
-  style="background-color:blue"
+  style="color: black;"
     [colspan]="3"
     [rowspan]="10">
-    yeah!
+    <div id="messageBox">
+        <div *ngFor="let message of messages" [ngClass]="message.user == username ? 'me' : 'other'">
+            <span class="user">{{ message.user }}</span>
+            <mat-card>
+              
+                  {{ message.message }} 
+                
+            </mat-card>
+        </div>
+    </div>
+    
+        
   </mat-grid-tile>
   <mat-grid-tile
     [colspan]="3"
@@ -25,6 +36,7 @@
     <button
       color="primary"
       [disabled]="!message.valid"
+      (click)="sendMessage()"
       mat-stroked-button>
       Send
     </button>
