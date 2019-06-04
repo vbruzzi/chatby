@@ -1,1 +1,0 @@
-web: cd chatby && npm start
