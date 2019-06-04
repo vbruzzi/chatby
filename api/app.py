@@ -5,16 +5,16 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from bson import json_util
 from bson import ObjectId
+from os import environ
 import datetime
 import json
 import hashlib
 import markdown
-import os
 
 # Encryption Salt
 SALT = "thisistheSALT"
 # Mongo URI
-client = MongoClient(os.environ["connectionstring"])
+client = MongoClient(environ["connectionstring"])
 db = client.Chatby
 
 app = Flask(__name__)
@@ -37,7 +37,7 @@ def chat():
                         # Gets the message from json request and formats it for insertion
                         newMessage = request.get_json()       
                         formattedMessage = {'message': newMessage['message'], 'username': newMessage['username'], 'created': datetime.datetime.now()} 
-                        col.insert(formattedMessage)
+                        col.insert_one(formattedMessage)
                         return '', 201
                 except Exception as ex:
                         return ex, 500
@@ -49,11 +49,11 @@ def chat():
                         # Returns a list of all messages
                         notes = [{'message': x['message'], 'username': x['username']} for x in getNotes] 
                         return jsonify(notes), 200
-                except: 
-                        return "An error has occurred, try again later", 500
+                except Exception as ex:
+                        return ex, 500
         # Unsupported method
         else: 
-                return "Method not supported", 500
+                return "Method not supported", 405
 
 
 
@@ -96,7 +96,7 @@ def users():
                                 return 'User already exists', 409
                         else:
                                 password = hashpassword(password)
-                                col.insert({'username':username, 'stylizedUsername': stylizedUsername, 'password':password, 'messagesSent': 0})
+                                col.insert_one({'username':username, 'stylizedUsername': stylizedUsername, 'password':password, 'messagesSent': 0})
                                 return '', 201
                                 
                 except Exception as e:
@@ -119,7 +119,7 @@ def users():
 
         # Not yet implemented requests (such as UPDATE)
         else:
-                return 'Method not supported', 500
+                return 'Method not supported', 405
         
 
 @socketio.on('connection', namespace='/')
