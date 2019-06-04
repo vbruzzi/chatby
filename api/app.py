@@ -9,11 +9,12 @@ import datetime
 import json
 import hashlib
 import markdown
+import os
 
 # Encryption Salt
 SALT = "thisistheSALT"
 # Mongo URI
-client = MongoClient("mongodb+srv://vitor:HGaPxICYFnhXPxKq@cluster0-zejls.mongodb.net/test?retryWrites=true")
+client = MongoClient(os.environ["connectionstring"])
 db = client.Chatby
 
 app = Flask(__name__)

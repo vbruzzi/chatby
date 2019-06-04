@@ -1,5 +1,5 @@
 # Chatby Instant Messaging app
-A chatting app with a fully functional login. Made with Angular, MongoDB, Node and Flask for the API. 
+A chat app made with Flask/pymongo for the API and Angular (with Node) in the frontend.
 
 
 # What I learned
