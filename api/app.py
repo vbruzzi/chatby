@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request, redirect, url_for
-
 from flask_socketio import SocketIO, send, emit
 from flask_cors import CORS
 from pymongo import MongoClient
@@ -14,7 +13,10 @@ import markdown
 # Encryption Salt
 SALT = "thisistheSALT"
 # Mongo URI
-client = MongoClient(environ["connectionstring"])
+mongoURI = "mongodb+srv://vitor:z5GSXMXZ4ksGlPm2@cluster0-zejls.mongodb.net/test?retryWrites=true"
+client = MongoClient(mongoURI)
+#Use this to connect via environment variable
+#client = MongoClient(environ["connectionstring"])
 db = client.Chatby
 
 app = Flask(__name__)

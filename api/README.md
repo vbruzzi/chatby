@@ -1,41 +1,46 @@
 # API Behaviour and Endpoints
 This is the expectected behaviour for the Chatby API.
 
-# /user
-## POST
-Creates a new user. Expects user information as URL arguments (password/username).
+## Setup
+To setup this API, run `pip install` inside the folder to download all of the required packages. After that, you should then change the `mongoURI` variable to your MongoDB URI in able to connect to it. Then run `python app.py`. `flask run` will not work due to limitations with Flask-SocketIO, but functionality will remain the same.
 
-**201** - User was created
-**409** - User already exists
-**500** - An error within the server occured
-
-## GET
-Attempts to find a user with given credentials Expects user information as JSON in the following format:
+ ## Creating a new user
+Send a POST request to `/uper` with a JSON payload in the following format: 
 ```
 {
-    'username' : <USERNAME>,
-    'password' : <PASSWORD>
-}
-```
-**200** - Login succeeded.
-**404** - User not found.
-**500** - An error within the server occured
-
-
-# /chat
-## POST
-Attempts to submit a message to the database. Expects the message to be provided as JSON in the following format:
-```
-{
-    'message' : <MESSAGE>,
-    'username': <USERNAME>  
+	"username": "vitoRRr",
+	"password": "12345"
 }
 ```
 
-**201** - Message was submitted
-**500** - An error within the server occured
+ ## Logging in
+ Send a GET reqeuest with the username and password in the same format as above. Will return a 200 OK status code with a JSON payload with the stylized username (for display) and the standardized username.
+ ```
+ {
+    "stylizedUsername": "vitoRRr",
+    "username": "vitorrr"
+}
 
-## GET
-Attempts to get all messages from the database. Returns a JSON response in the following format:
+ ```
+
+## Posting a message
+Send a POST request with the message in the following JSON format:
 ```
+{
+    "message": "Hello world!",
+    "username": "vitorrr"  
+}
+
+```
+## GET
+Gets all the messages. Returns it in JSON in this format:
+
+```
+[
+    {
+        "message": "Hello world!",
+        "username": "vitorrr"    
+    },
+    [...]
+]
 ```

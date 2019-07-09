@@ -1,7 +1,6 @@
 # Chatby Instant Messaging app
-A chat app made with Flask/pymongo for the API and Angular (with Node) in the frontend. Documentation for the API can be found in the API folder.
+A chat app made with Flask, MongoDB, Angular and SocketIO.
 
 
-# What I learned
-* Web sockets
-* Implementation of a login with Flask/Angular
+## Running
+To run Chatby, follow the instructions on the README in `/api` and `/chatby` and run them simultaneously.
