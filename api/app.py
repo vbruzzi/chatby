@@ -13,7 +13,7 @@ import markdown
 # Encryption Salt
 SALT = "thisistheSALT"
 # Mongo URI
-mongoURI = "mongodb+srv://vitor:z5GSXMXZ4ksGlPm2@cluster0-zejls.mongodb.net/test?retryWrites=true"
+mongoURI = "URI Here"
 client = MongoClient(mongoURI)
 #Use this to connect via environment variable
 #client = MongoClient(environ["connectionstring"])
