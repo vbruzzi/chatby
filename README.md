@@ -1,6 +1,5 @@
-# Chatby Instant Messaging app
-A chat app made with Flask, MongoDB, Angular and SocketIO.
+# Chatby Angular App
+This is the frontend for the Quizzy app. 
 
-
-## Running
-To run Chatby, follow the instructions on the README in `/api` and `/chatby` and run them simultaneously.
+## Setup
+To set up, you should run `npm install` to install any packages needed. After that, you can run `ng serve -o` and the website will open. 
