@@ -1,24 +1,139 @@
-.other {
-    align-content: flex-start;
-    text-align: left;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+section {
+  display: flex;
+  justify-content: center;
 }
 
-.me { 
-    align-self: flex-end;
-    text-align: right;
+.top {
+  height: 10%;
+  width: 100%;
+  border-bottom: .5px solid #C7C7C7;
+  background-color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.user {
-    font-weight: 600;
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  display: table;
+  margin-left: 40%;
+  justify-self: center;
+  color: rgb(92, 92, 92);
 }
 
-mat-card {
-    max-width: 300px;
+.top button {
+  margin-left: auto;
+}
+
+.container {
+  width: 36vh;
+  height: 64vh;
+  min-height: 300px;
+  min-width: 280px;
+  border: 1px solid #C7C7C7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
 }
 
 #messageBox {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    align-content: center;
     width: 80%;
+    height: 90%;
+    margin-bottom: 5px;
+    overflow: auto;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+.mat-form-field-infix {
+  margin-top: 0 !important;
+}
+
+button {
+  color: black;
+
+}
+.me {
+  margin-left: auto;
+  text-align: right;
+}
+
+.other {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.me, .other {
+  max-width: 50%;
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+  font-size: .7em;
+  color: #C7C7C7;
+}
+
+
+.me .user {
+  margin-left: auto;
+}
+.message {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 25px;
+  padding: 5px 10px;
+  font-size: 1em;
+  word-wrap: break-word;
+}
+
+.me .message {
+  background-color: #0B93F6;
+  color: white;
+}
+
+.other .message {
+  background-color: #E5E5EA;
+  color: black;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  border: 1px solid #C7C7C7 !important;
+  border-radius: 35px !important;
+  width: 80%;
+  height: 30px;
+  margin-bottom: 5px;
+  padding: 5% 0 0 5%;
+}
+
+.submit-button {
+  margin-bottom: 5%
+}
+
+input {
+  margin-bottom: 1%;
+}
+
+
+::ng-deep .mat-form-field-underline {
+  display: none;
 }

@@ -16,18 +16,18 @@ export class UserService {
     })
   };
 
-  api = "http://localhost:5000/user";
+  api = 'https://chatby-api.herokuapp.com/user';
 
-  login(credentials: Object): Observable<Object> {
+  login(credentials: object): Observable<object> {
     return this.http.get(this.api, {
-      params:{
+      params: {
         username: credentials['username'],
         password: credentials['password']
       }
     });
   }
 
-  register(credentials: Object): Observable<Object> {
+  register(credentials: object): Observable<object> {
     return this.http.post(this.api, credentials, this.httpOptions);
-  } 
+  }
 }

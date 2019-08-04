@@ -1,0 +1,16 @@
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: #979797;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #6e6e6e;
+  text-decoration: none;
+}

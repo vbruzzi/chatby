@@ -8,7 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule,
           MatCardModule,
           MatButtonModule,
-          MatGridListModule } from '@angular/material';
+          MatGridListModule,
+          MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -31,6 +32,7 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

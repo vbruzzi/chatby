@@ -1,44 +1,51 @@
-<mat-grid-list cols="4" rowHeight="50px">
-  <mat-grid-tile
-  style="background-color:black"
-    [colspan]="1"
-    [rowspan]="12">
-    
-  </mat-grid-tile>
-  <mat-grid-tile 
-  style="color: black;"
-    [colspan]="3"
-    [rowspan]="10">
-    <div id="messageBox">
-        <div *ngFor="let message of messages" [ngClass]="message.user == username ? 'me' : 'other'">
-            <span class="user">{{ message.user }}</span>
-            <mat-card>
-              
-                  {{ message.message }} 
-                
-            </mat-card>
-        </div>
+<section>
+  <div class="container">
+    <div class="top">
+      <h3>
+        Chatby
+      </h3>
+
+      <button
+        (click)="logOff()"
+        mat-icon-button>
+          <mat-icon aria-hidden="false" aria-label="Logout">
+              power_settings_new</mat-icon>
+      </button>
+
     </div>
-    
-        
-  </mat-grid-tile>
-  <mat-grid-tile
-    [colspan]="3"
-    [rowspan]="1">
-    <mat-form-field>
-      <input 
-        type="text"
-        placeholder="Message"
-        [formControl]="message"
-        minlength="5"
-        matInput required>
-    </mat-form-field>
-    <button
-      color="primary"
-      [disabled]="!message.valid"
-      (click)="sendMessage()"
-      mat-stroked-button>
-      Send
-    </button>
-  </mat-grid-tile>
-</mat-grid-list>
+    <div id="messageBox">
+      <div *ngFor="let message of messages" [ngClass]="message.user == username ? 'me' : 'other'">
+        <div class="messageContent">
+            <span class="user">{{ message.user }}</span>
+            <span class="message">
+
+                  {{ message.message }}
+
+            </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="input">
+      <mat-form-field>
+        <input
+          class="user-input"
+          type="text"
+          [formControl]="message"
+          minlength="5"
+          maxlength="100"
+          matInput required>
+      </mat-form-field>
+      <button
+        class="submit-button"
+        [disabled]="!message.valid"
+        (click)="sendMessage()"
+        mat-icon-button>
+        <mat-icon aria-hidden="false" aria-label="Send Message">arrow_upward</mat-icon>
+
+      </button>
+    </div>
+  </div>
+
+</section>
