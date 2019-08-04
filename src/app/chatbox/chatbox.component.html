@@ -6,24 +6,22 @@
       </h3>
 
       <button
-        (click)="logOff()"
+        (click)="logOff($event)"
         mat-icon-button>
           <mat-icon aria-hidden="false" aria-label="Logout">
-              power_settings_new</mat-icon>
+              power_settings_new
+          </mat-icon>
       </button>
-
     </div>
+
     <div id="messageBox">
       <div *ngFor="let message of messages" [ngClass]="message.user == username ? 'me' : 'other'">
         <div class="messageContent">
             <span class="user">{{ message.user }}</span>
             <span class="message">
-
                   {{ message.message }}
-
             </span>
         </div>
-
       </div>
     </div>
 
@@ -37,15 +35,14 @@
           maxlength="100"
           matInput required>
       </mat-form-field>
+
       <button
         class="submit-button"
         [disabled]="!message.valid"
         (click)="sendMessage()"
         mat-icon-button>
         <mat-icon aria-hidden="false" aria-label="Send Message">arrow_upward</mat-icon>
-
       </button>
     </div>
   </div>
-
 </section>

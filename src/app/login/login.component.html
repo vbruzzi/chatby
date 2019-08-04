@@ -6,10 +6,12 @@
 
     <form [formGroup]="loginForm">
       <div>
+        <div class="label">
+          Username
+        </div>
         <mat-form-field>
           <input
             type="text"
-            placeholder="Username"
             formControlName="username"
             minlength="5"
             matInput required>
@@ -17,10 +19,12 @@
       </div>
 
       <div>
+          <div class="label">
+              Password
+            </div>
         <mat-form-field>
           <input
             type="password"
-            placeholder="Password"
             formControlName="password"
             minlength="5"
             matInput required>
