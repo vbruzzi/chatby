@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,12 @@ export class LoginComponent {
 
   @Output() updateState = new EventEmitter();
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private _snackBar: MatSnackBar) { }
+
+  openSnackBar() {
+    this._snackBar.open('You have entered an invalid username or password', null, { duration: 3000 });
+  }
 
   login() {
     this.userService.login(this.loginForm.value).
@@ -28,7 +34,7 @@ export class LoginComponent {
         this.failedLogin = false;
         this.updateState.emit(null);
       },
-        () => this.failedLogin = true);
+        () => this.openSnackBar());
   }
 
   register() {

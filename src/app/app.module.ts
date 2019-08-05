@@ -9,7 +9,8 @@ import { MatInputModule,
           MatCardModule,
           MatButtonModule,
           MatGridListModule,
-          MatIconModule } from '@angular/material';
+          MatIconModule,
+          MatSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -32,7 +33,8 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

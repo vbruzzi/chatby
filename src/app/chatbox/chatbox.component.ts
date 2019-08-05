@@ -26,16 +26,15 @@ export class ChatboxComponent implements OnInit {
     this.ioConnection = this.service.onMessage()
       .subscribe((message: object) => {
         this.messages.push(message);
-        console.log(this.messages)
       });
   }
 
   sendMessage() {
     this.service.sendMessage(this.username, this.message.value);
+    this.message.reset();
   }
 
   logOff() {
     this.logout.emit();
   }
-
 }
