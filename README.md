@@ -1,4 +1,4 @@
-# Chatby Angular App
+# CHATBY
 Chatby is a chat room app I made to learn more about web sockets. It is made with Python, Angular, MongoDB and Socket.IO. You can find a live demo [here](http://chatby-api.herokuapp.com/) (it may take a while for Heroku to boot the project).
 
 ## Setup
